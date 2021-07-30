@@ -27,7 +27,7 @@ export class NewAccountComponent implements OnInit {
     // const log = new LogService();
 
     if(this.accountName){
-      this.accountService.addAccount({name: accountName, status: accountStatus as AccountStatus})
+      this.accountService.addAccount({name: accountName, status: accountStatus as AccountStatus,id:Math.random()})
       this.accountName.nativeElement.value="";
     }
 

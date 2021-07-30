@@ -5,7 +5,7 @@ export type AccountStatus='active' | 'inactive' | 'unknown'
 export interface Account{
   name:string,
   status:AccountStatus,
-  id?:number
+  id:number
 }
 
 @Injectable({
@@ -49,10 +49,20 @@ export class AccountService {
     this.accounts=this.accounts.filter(x=> x.id !==id)
     this.accountsChanged.emit(this.accounts)
   }
-   editAccount(id:number,name: string){
-    this.accounts[id].name=name;
-    this.accountsEdited.emit(name)
-    console.log(name)
-    this.rooter.navigate(['']);
+
+  //  editAccount(id:number,name: string){
+  //   this.accounts[id].name=name;
+  //   this.accountsEdited.emit(name)
+  //   console.log(name)
+  //   this.rooter.navigate(['']);
+  // }
+
+  getAccount(id: number) {
+    const account = this.accounts.find(
+      (a) => {
+        return a.id === id;
+      }
+    );
+    return account;
   }
 }
