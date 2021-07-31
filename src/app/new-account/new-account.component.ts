@@ -31,7 +31,7 @@ export class NewAccountComponent implements OnInit {
       this.accountName.nativeElement.value="";
     }
 
-    this.log.logServiceStatusChanged(status);
+    this.log.logServiceStatusChanged(accountStatus);
 
   }
 

@@ -15,6 +15,7 @@ export class AccountService {
 
   public accountsChanged=new EventEmitter<Account[]>();
   public accountsEdited=new EventEmitter<string>();
+  public statusUpdated=new EventEmitter<AccountStatus>();
 
   public accounts:Account[]=[
     {
@@ -44,8 +45,9 @@ export class AccountService {
 
    updateAccountStatus(id: number,accountStatus: AccountStatus) {
     this.accounts[id].status = accountStatus;
+    this.statusUpdated.emit(accountStatus)
   }
-  removeAccount(id:number | undefined){
+  removeAccount(id:number){
     this.accounts=this.accounts.filter(x=> x.id !==id)
     this.accountsChanged.emit(this.accounts)
   }
@@ -58,11 +60,11 @@ export class AccountService {
   // }
 
   getAccount(id: number) {
-    const account = this.accounts.find(
-      (a) => {
-        return a.id === id;
-      }
-    );
+    const account = this.accounts.filter(a=> a.id == id);
     return account;
+  }
+  getIndex(id: number){
+    const i = this.accounts.findIndex(a=> a.id == id);
+    return i;
   }
 }

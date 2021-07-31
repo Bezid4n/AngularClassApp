@@ -8,7 +8,7 @@
       <select class="form-control" #status>
         <option value="active">Active</option>
         <option value="inactive">Inactive</option>
-        <option value="hidden">Hidden</option>
+        <option value="unknown">unknown</option>
       </select>
     </div>
     <button class="btn btn-primary" (click)="onCreateAccount(accountName.value, status.value)" *ngIf="flag">
