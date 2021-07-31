@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Account, AccountService, AccountStatus } from 'src/app/account.service';
@@ -19,7 +20,8 @@ export class AccountsComponent implements OnInit {
 
   constructor(private accountService: AccountService,
     private activatedRoute: ActivatedRoute,
-    private log:LogService) { }
+    private log:LogService,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(p => {
@@ -39,6 +41,15 @@ export class AccountsComponent implements OnInit {
       this.account.status=accounts;
 
     })
+
+  }
+
+  edit() {
+    this.router.navigate(['edit'], {
+      relativeTo: this.activatedRoute,
+      queryParamsHandling: 'merge',
+      preserveFragment: true
+    });
 
   }
 

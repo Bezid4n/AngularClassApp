@@ -59,10 +59,28 @@ export class AccountService {
   //   this.rooter.navigate(['']);
   // }
 
+  updateAccount(id: number, accountInfo: { name: string, status: AccountStatus }) {
+    const account = this.accounts.find(
+      (s) => {
+        return s.id === id;
+      }
+    );
+    if (account) {
+      account.name = accountInfo.name;
+      account.status = accountInfo.status;
+    }
+  }
+
   getAccount(id: number) {
     const account = this.accounts.filter(a=> a.id == id);
     return account;
   }
+
+  getAccounts(id: number) {
+    const account = this.accounts.find(a=> a.id == id);
+    return account;
+  }
+
   getIndex(id: number){
     const i = this.accounts.findIndex(a=> a.id == id);
     return i;

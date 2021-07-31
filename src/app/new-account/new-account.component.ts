@@ -35,29 +35,29 @@ export class NewAccountComponent implements OnInit {
 
   }
 
-  cancelAccount(){
-    if(this.accountName){
-      this.accountName.nativeElement.value="";
-      this.flag=true;
-    }
-  }
+  // cancelAccount(){
+  //   if(this.accountName){
+  //     this.accountName.nativeElement.value="";
+  //     this.flag=true;
+  //   }
+  // }
 
-  editAccount(){
+  // editAccount(){
 
-  }
+  // }
 
 
  constructor(private log: LogService,private accountService:AccountService){
 
  }
   ngOnInit(): void {
-    this.accountService.accountsEdited.subscribe(nameAcc=>{
-      if(this.accountName){
-        this.accountName.nativeElement.value=nameAcc;
-        this.flag=!this.flag
+    // this.accountService.accountsEdited.subscribe(nameAcc=>{
+    //   if(this.accountName){
+    //     this.accountName.nativeElement.value=nameAcc;
+    //     this.flag=!this.flag
 
-      }
-    })
+    //   }
+    // })
   }
 
   flag=true;

@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AccountsComponent } from './account/accounts/accounts.component';
 import { EditAccountComponent } from './account/edit-account/edit-account.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '' , component: NewAccountComponent },
@@ -36,7 +37,8 @@ const routes: Routes = [
 
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

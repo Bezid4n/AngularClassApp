@@ -33,15 +33,7 @@ export class AccountComponent implements OnInit {
 
   // }
 
-  edit() {
 
-    this.router.navigate(['edit'], {
-      relativeTo: this.activatedRoute,
-      queryParamsHandling: 'merge',
-      preserveFragment: true
-    });
-
-  }
 
   // //Dependency Injection
   constructor(
