@@ -4,14 +4,15 @@ import { AccountComponent } from "./account/account.component";
 import { AccountsComponent } from "./account/accounts/accounts.component";
 import { EditAccountComponent } from "./account/edit-account/edit-account.component";
 import { AuthGuard } from "./auth.guard";
+import { EditGuard } from "./edit.guard";
 import { NewAccountComponent } from "./new-account/new-account.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
 
 const routes: Routes = [
   { path: '' , component: NewAccountComponent },
-  { path: 'LOA' , component: AccountComponent, canActivate:[AuthGuard], children:[
+  { path: 'LOA' , component: AccountComponent, canActivate:[AuthGuard],canActivateChild:[AuthGuard], children:[
     { path: ':id', component: AccountsComponent },
-    { path: ':id/edit', component: EditAccountComponent },
+    { path: ':id/edit', component: EditAccountComponent, canDeactivate:[EditGuard] },
   ]},
   { path: '404' , component: NotFoundComponent },
   { path: '**' , redirectTo:'404' }

@@ -6,12 +6,10 @@ import { AgarDirective } from './agar.directive';
 import { AccountComponent } from './account/account.component';
 import { NewAccountComponent } from './new-account/new-account.component';
 import { AccountManagerComponent } from './account-manager/account-manager.component';
-import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AccountsComponent } from './account/accounts/accounts.component';
 import { EditAccountComponent } from './account/edit-account/edit-account.component';
 import { FormsModule } from '@angular/forms';
-import { AuthGuard } from './auth.guard';
 import { appRoutingModule } from './app.routing.module';
 
 

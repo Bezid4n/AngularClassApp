@@ -1,6 +1,7 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { AccountService, AccountStatus,Account } from '../account.service';
 import { AccountComponent } from '../account/account.component';
+import { AuthService } from '../auth.service';
 import { LogService } from '../log.service';
 
 
@@ -46,8 +47,21 @@ export class NewAccountComponent implements OnInit {
 
   // }
 
+  login(){
+    this.authService.login()
+    this.isloggedIn=this.authService.isloggedIn;
+  }
+  logout(){
+    this.authService.logout()
+    this.isloggedIn=this.authService.isloggedIn;
+  }
 
- constructor(private log: LogService,private accountService:AccountService){
+  isloggedIn=false
+
+
+ constructor(private log: LogService
+  ,private accountService:AccountService
+  ,private authService:AuthService){
 
  }
   ngOnInit(): void {
@@ -58,6 +72,7 @@ export class NewAccountComponent implements OnInit {
 
     //   }
     // })
+    this.isloggedIn=this.authService.isloggedIn;
   }
 
   flag=true;

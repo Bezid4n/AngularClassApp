@@ -14,6 +14,8 @@
     <button class="btn btn-primary" (click)="onCreateAccount(accountName.value, status.value)" >
       Add Account
     </button>
+    <button *ngIf="!isloggedIn" class="btn btn-success" (click)="login()">Login</button>
+    <button *ngIf="isloggedIn" class="btn btn-danger" (click)="logout()">Logout</button>
     <!-- <button class="btn btn-primary" *ngIf="!flag" (click)="editAccount()">Edit Account</button>
     <button class="btn btn-danger" *ngIf="!flag" (click)="cancelAccount()">Cancel</button> -->
   </div>
