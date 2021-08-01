@@ -11,17 +11,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AccountsComponent } from './account/accounts/accounts.component';
 import { EditAccountComponent } from './account/edit-account/edit-account.component';
 import { FormsModule } from '@angular/forms';
+import { AuthGuard } from './auth.guard';
+import { appRoutingModule } from './app.routing.module';
 
-const routes: Routes = [
-  { path: '' , component: NewAccountComponent },
-  { path: 'LOA' , component: AccountComponent, children:[
-    { path: ':id', component: AccountsComponent },
-    { path: ':id/edit', component: EditAccountComponent },
-  ]},
-  { path: '404' , component: NotFoundComponent },
-  { path: '**' , redirectTo:'404' }
 
-]
 
 @NgModule({
   declarations: [
@@ -37,8 +30,8 @@ const routes: Routes = [
 
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    appRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
