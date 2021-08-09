@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form action="" #f="ngForm" (ngSubmit)=onSubmit(f)>
+        <div ngModelGroup="userData">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input class="form-control" id="username" type="text" name="username" ngModel required>
+          </div>
+          <button class="btn btn-success" (click)="suggestUsername()">Suggest</button>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input class="form-control" id="email" type="text" name="email" ngModel required email #email="ngModel">
+            <em *ngIf="email.invalid && email.touched && email.errors?.email">Email is Invalid!</em>
+            <em *ngIf="email.invalid && email.touched && email.errors?.required">Email is Required!</em>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label" >Secret Question</label>
+          <select class="form-control" name="select" id="" [ngModel]="defaultquiestion">
+            <option value="pet">Your first pet?</option>
+            <option value="teacher">Your first teacher?</option>
+          </select>
+
+        </div>
+
+        <button class="btn btn-primary" [disabled]="f.invalid">Save</button>
+        <button class="btn btn-danger" (click)="resetForm()">Reset</button>
+      </form>
+    </div>
+  </div>
+</div>
+

@@ -11,6 +11,7 @@ import { AccountsComponent } from './account/accounts/accounts.component';
 import { EditAccountComponent } from './account/edit-account/edit-account.component';
 import { FormsModule } from '@angular/forms';
 import { appRoutingModule } from './app.routing.module';
+import { TemplateFormComponent } from './template-form/template-form.component';
 
 
 
@@ -24,6 +25,7 @@ import { appRoutingModule } from './app.routing.module';
     NotFoundComponent,
     AccountsComponent,
     EditAccountComponent,
+    TemplateFormComponent,
   ],
 
   imports: [

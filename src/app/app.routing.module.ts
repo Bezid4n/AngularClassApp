@@ -7,6 +7,7 @@ import { AuthGuard } from "./auth.guard";
 import { EditGuard } from "./edit.guard";
 import { NewAccountComponent } from "./new-account/new-account.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
+import { TemplateFormComponent } from "./template-form/template-form.component";
 
 const routes: Routes = [
   { path: '' , component: NewAccountComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
     { path: ':id', component: AccountsComponent },
     { path: ':id/edit', component: EditAccountComponent, canDeactivate:[EditGuard] },
   ]},
+  { path: 'FOA' , component: TemplateFormComponent },
   { path: '404' , component: NotFoundComponent },
   { path: '**' , redirectTo:'404' }
 
