@@ -9,6 +9,7 @@ import { NewAccountComponent } from "./new-account/new-account.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { TemplateFormComponent } from "./template-form/template-form.component";
 
+
 const routes: Routes = [
   { path: '' , component: NewAccountComponent },
   { path: 'LOA' , component: AccountComponent, canActivate:[AuthGuard],canActivateChild:[AuthGuard], children:[
